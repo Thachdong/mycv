@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const path = require("path");
 const cvRoutes = require("./routes/cv");
 
 const app = express();
@@ -10,6 +11,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, "client", "build")));
 //Connect to mongodb
 mongoose.connect(
   process.env.MONGODB_URI,
@@ -55,6 +57,9 @@ app.use((error, req, res, next) => {
       data: null,
     },
   });
+});
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
 //App listen
 const PORT = process.env.PORT || 5000;

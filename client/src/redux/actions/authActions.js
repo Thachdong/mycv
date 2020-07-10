@@ -20,7 +20,7 @@ export const getAuth = (key) => {
   return async (dispatch) => {
     dispatch(setAuthRequest());
     try {
-      await axios.post("http://localhost:5000/secret_key", key);
+      await axios.post("/secret_key", key);
       localStorage.setItem("auth", true);
       dispatch(setAuthSuccess());
       return false;

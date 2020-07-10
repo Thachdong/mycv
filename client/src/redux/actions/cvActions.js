@@ -19,7 +19,7 @@ export const setCv = () => {
   return async (dispatch) => {
     dispatch(setCvRequest());
     try {
-      const cv = await axios.get("http://localhost:5000/cv");
+      const cv = await axios.get("/cv");
       if (cv.data.Success) {
         const cvInfo = {
           ...cv.data.Success.data[0],
@@ -38,7 +38,7 @@ export const updateCv = (updateCv, id) => {
   return async (dispatch) => {
     dispatch(setCvRequest());
     try {
-      const cv = await axios.patch(`http://localhost:5000/cv/${id}`, updateCv);
+      const cv = await axios.patch(`/cv/${id}`, updateCv);
       if (cv.data.Success) {
         const cvInfo = {
           ...cv.data.Success.data,
