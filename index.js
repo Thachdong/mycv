@@ -9,6 +9,7 @@ const app = express();
 //Top middlewares
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 //Connect to mongodb
 mongoose.connect(
   process.env.MONGODB_URI,
@@ -21,7 +22,7 @@ mongoose.connect(
 );
 //Routes
 app.use("/cv", cvRoutes);
-app.get("/secret_key", (req, res) => {
+app.post("/secret_key", (req, res) => {
   const { key } = req.body;
   if (key === process.env.SECRET_KEY) {
     return res.status(200).json({

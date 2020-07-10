@@ -44,6 +44,11 @@ const CvSchema = new mongoose.Schema({
     type: String,
     default: "https://via.placeholder.com/150",
   },
+  phone: {
+    type: String,
+    match: /^0[0-9]{9}$/,
+    required: true,
+  },
   email: {
     type: String,
     required: true,
@@ -73,7 +78,7 @@ const CvSchema = new mongoose.Schema({
   experience: {
     type: String,
   },
-  knowledge: [KnowledgeSchema],
+  knowledges: [KnowledgeSchema],
 });
 
 module.exports = mongoose.model("CV", CvSchema);

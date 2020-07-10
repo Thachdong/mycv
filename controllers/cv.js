@@ -3,6 +3,7 @@ const CV = require("../models/cv");
 const addCV = async (req, res, next) => {
   const {
     avatar,
+    phone,
     email,
     fullName,
     birthDay,
@@ -12,12 +13,13 @@ const addCV = async (req, res, next) => {
     experience,
     skills,
     projects,
-    knowledge,
+    knowledges,
     languages,
   } = req.body;
   try {
     const newCV = new CV({
       avatar,
+      phone,
       email,
       fullName,
       birthDay,
@@ -27,7 +29,7 @@ const addCV = async (req, res, next) => {
       experience,
       skills,
       projects,
-      knowledge,
+      knowledges,
       languages,
     });
     await newCV.save();
@@ -49,9 +51,7 @@ const updateCV = async (req, res, next) => {
     const cv = await CV.findByIdAndUpdate(cvId, updateInfo);
     if (cv) {
       const updatedCV = await CV.findById(cvId);
-      console.log(updatedCV);
-
-      return res.status(204).json({
+      return res.status(200).json({
         Success: {
           message: "CV updated",
           data: updatedCV,
