@@ -48,8 +48,8 @@ const AdminContainer = ({ cv, updateCv }) => {
         if (validSkill.value && !validSkill.error) {
           const newValue =
             skills === undefined
-              ? [...cv.skills, { ...skill }]
-              : [...skills, { ...skill }];
+              ? [{ ...skill }, ...cv.skills]
+              : [{ ...skill }, ...skills];
           setSkills(newValue);
           setSkill(null);
           return true;
@@ -93,8 +93,8 @@ const AdminContainer = ({ cv, updateCv }) => {
         if (validProject.value && !validProject.error) {
           const newValue =
             projects === undefined
-              ? [...cv.projects, { ...project }]
-              : [...projects, { ...project }];
+              ? [{ ...project }, ...cv.projects]
+              : [{ ...project }, ...projects];
           setProjects(newValue);
           setProject(null);
           return true;

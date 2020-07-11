@@ -14,9 +14,12 @@ body {
   overflow-x: hidden;
 }
 
-/*
-*Commonly styles
-*/
+//Commonly styles
+.container {
+  max-width: 1340px;
+  margin: 0 auto;
+}
+
 .truncate-table-cell {
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -279,6 +282,10 @@ svg {
       padding: 0.5rem 0;
       svg {
         margin-right: 0.5rem;
+      }
+      a {
+        word-break: break-all;
+        flex-shrink: 2;
       }
       .name {
         font-weight: 700;

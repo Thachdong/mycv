@@ -5,7 +5,7 @@ import Content from "../Content";
 import { GiGears } from "react-icons/gi";
 
 const CV = () => (
-  <div className="cv">
+  <div className="cv container">
     <SideBar />
     <Content />
     <Link className="edit-btn" to="/admin">

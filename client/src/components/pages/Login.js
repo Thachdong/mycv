@@ -18,7 +18,7 @@ const Login = ({ auth, getAuth }) => {
   };
 
   return (
-    <div className="login flex-box">
+    <div className="login flex-box container">
       <form className="flex-box">
         <h3>Enter secret key and access admin page</h3>
         <input

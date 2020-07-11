@@ -21,7 +21,7 @@ const Admin = ({
   cv,
 }) => {
   return (
-    <div className="admin">
+    <div className="admin container">
       {(isLoading || cv.isLoading) && (
         <div className="preloader flex-box">
           <div></div>
