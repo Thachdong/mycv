@@ -115,7 +115,8 @@ svg {
 }
 
 //Cv page
-.cv .edit-btn {
+.cv .edit-btn,
+.download-btn {
   opacity: 0.2;
   position: absolute;
   right: 1rem;
@@ -124,6 +125,14 @@ svg {
   &:hover {
     opacity: 1;
   }
+}
+
+.cv .download-btn {
+  top: calc(100% - 1.5rem);
+  color: $highLightColor;
+  font-size: 2rem;
+  cursor: pointer;
+  border: none;
 }
 
 .cv {
@@ -136,6 +145,13 @@ svg {
   a {
     color: $highLightColor;
     text-decoration: none;
+  }
+  @media print {
+    grid-template-columns: 3fr 7fr;
+    .download-btn,
+    .edit-btn {
+      display: none;
+    }
   }
   @media screen and(min-width: 768px) {
     grid-template-columns: 1fr 3fr;
