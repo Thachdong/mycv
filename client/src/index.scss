@@ -115,8 +115,7 @@ svg {
 }
 
 //Cv page
-.cv .edit-btn,
-.download-btn {
+.cv .edit-btn {
   opacity: 0.2;
   position: absolute;
   right: 1rem;
@@ -128,11 +127,26 @@ svg {
 }
 
 .cv .download-btn {
-  top: calc(100% - 1.5rem);
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
   color: $highLightColor;
   font-size: 2rem;
   cursor: pointer;
   border: none;
+  opacity: 1;
+  animation: scale 1.25s linear infinite;
+  @keyframes scale {
+    0% {
+      transform: scale(0.25);
+    }
+    50% {
+      transform: scale(0.5);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
 }
 
 .cv {
@@ -289,7 +303,7 @@ svg {
         td {
           text-align: left;
           width: 50%;
-          padding: 0.5rem 0;
+          padding: 0.15rem 0;
         }
       }
     }
