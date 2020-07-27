@@ -58,7 +58,13 @@ const Content = ({ goal, experience, projects, knowledges }) => {
           <h3>Knowledge</h3>
         </div>
         <div className="content-box">
-          <table>
+          <p>I have knowledge about:</p>
+          <ul>
+            {knowledges.map((knowledge) => (
+              <li key={knowledge._id}>{knowledge.name}</li>
+            ))}
+          </ul>
+          {/* <table>
             <tbody>
               <tr>
                 <th>Knowledge</th>
@@ -71,7 +77,7 @@ const Content = ({ goal, experience, projects, knowledges }) => {
                 </tr>
               ))}
             </tbody>
-          </table>
+          </table> */}
         </div>
       </div>
     </div>
